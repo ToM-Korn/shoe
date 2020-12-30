@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group >
+        <item
+            android:id="@+id/InstrutionsFragment"
+            android:title="@string/InstructionsItem" />
+        <item
+            android:id="@+id/ShoesFragment"
+            android:title="@string/ShoesItem" />
+    </group>
+    <group >
+        <item
+            android:id="@+id/LogoutFragment"
+            android:title="@string/LogoutItem" />
+    </group>
+</menu>

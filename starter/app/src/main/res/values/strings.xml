@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="InstructionsItem">Instructions</string>
+    <string name="LogoutItem">Logout</string>
+    <string name="ShoesItem">Show Me Shoes!</string>
+    <string name="drawer_top_image_description">Shoe Image</string>
+    <string name="shoe_nav_host_fragment_label">Shoe Nav Host</string>
+    <string name="welcome_fragement_welcome_text">Welcome to this great Shoe Inventory App... We have loads of Shoes for you</string>
+    <string name="button_show_me_shoes">Show me Shoes!</string>
+    <string name="shoe_image">Shoe Image</string>
 </resources>

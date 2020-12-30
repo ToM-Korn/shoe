@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:backgroundTintMode="add"
+        android:contentDescription="@string/drawer_top_image_description"
+        android:src="@drawable/ic_high_heels"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_high_heels"
+        tools:srcCompat="@drawable/ic_high_heels" />
+</androidx.constraintlayout.widget.ConstraintLayout>
