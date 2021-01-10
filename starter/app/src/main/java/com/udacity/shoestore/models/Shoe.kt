@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 data class Shoe(var name: String, var size: Double, var company: String, var description: String,
                 val images: List<String> = mutableListOf()) : Parcelable
 
-var SHOE_LIST = listOf<Shoe>(
+var SHOE_LIST = mutableListOf<Shoe>(
     Shoe("New Style",38.0,"Prada","Some nice Words about this wonderful Shoe! ",
         mutableListOf("shoe1")
     ),

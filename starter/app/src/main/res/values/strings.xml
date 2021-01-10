@@ -113,6 +113,7 @@
     <string name="snipped_shoe_image_desc">The Image of a shoe</string>
     <string name="shoe_detail_image">Image of the selected Shoe</string>
     <string name="shoe_detail_title">Title of the Shoe</string>
+    <string name="shoe_detail_company">Producing Company</string>
     <string name="shoe_detail_description">Desciption of the Shoe</string>
     <string name="toolbar_title">"Tom's Shoe Shop!"</string>
     <string name="toolbar_subtitile">"... bring color to the pavement!"</string>

@@ -1,16 +1,19 @@
 package com.udacity.shoestore.detail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -19,6 +22,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.ScrollingFragmentDirections
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.SHOE_LIST
+import kotlinx.android.synthetic.main.fragment_scrolling.*
 import timber.log.Timber
 import java.io.ObjectInputValidation
 
@@ -72,7 +76,7 @@ class ShoeDetailFragment : Fragment() {
                 "drawable",
                 this.activity?.packageName
                 )
-                binding.imageView3.setImageResource(img_res)
+                binding.shoeDetailImage.setImageResource(img_res)
             }
         )
 
@@ -85,17 +89,36 @@ class ShoeDetailFragment : Fragment() {
             // android:visibility="@{visible ? android.view.View.VISIBLE: android.view.View.GONE}" />
             // but as it works this way as well, i thought i leave it for now like this.
             if (edit) {
+                // chonge the text view to edit
                 binding.shoeDetailDescription.visibility = View.GONE
                 binding.shoeDetailTitle.visibility = View.GONE
+                binding.shoeDetailSize.visibility = View.GONE
+                binding.shoeDetailCompany.visibility = View.GONE
+
+
                 binding.shoeDetailDescriptionEdit.visibility = View.VISIBLE
                 binding.shoeDetailTitleEdit.visibility = View.VISIBLE
+                binding.shoeDetailCompanyEdit.visibility = View.VISIBLE
+                binding.shoeDetailSizeEdit.visibility = View.VISIBLE
+                // change the fab icon to save
                 binding.floatingActionButton.setImageResource(R.drawable.ic_baseline_save_24)
             }   else {
+                // chonge from edit to text view elements
                 binding.shoeDetailDescription.visibility = View.VISIBLE
                 binding.shoeDetailTitle.visibility = View.VISIBLE
+                binding.shoeDetailCompany.visibility = View.VISIBLE
+                binding.shoeDetailSize.visibility = View.VISIBLE
+
                 binding.shoeDetailDescriptionEdit.visibility = View.GONE
                 binding.shoeDetailTitleEdit.visibility = View.GONE
+                binding.shoeDetailCompanyEdit.visibility = View.GONE
+                binding.shoeDetailSizeEdit.visibility = View.GONE
+
+                // chonge the icon on the fab to edit
                 binding.floatingActionButton.setImageResource(R.drawable.ic_baseline_edit_24)
+                // Hide the keyboard.
+                val imm = this.activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(view?.windowToken, 0)
             }
         })
 
