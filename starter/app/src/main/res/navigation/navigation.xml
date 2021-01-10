@@ -8,10 +8,44 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.udacity.shoestore.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.udacity.shoestore.WelcomeFragment"
-        android:label="fragment_welcome" />
+        android:name="com.udacity.shoestore.WelcomeFragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_scrollingFragment"
+            app:destination="@id/scrollingFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scrollingFragment"
+        android:name="com.udacity.shoestore.ScrollingFragment"
+        tools:layout="@layout/fragment_scrolling">
+        <action
+            android:id="@+id/action_scrollingFragment_to_shoeDetailFragment"
+            app:destination="@id/shoeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.udacity.shoestore.detail.ShoeDetailFragment">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="create"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.udacity.shoestore.InstructionsFragment"
+        android:label="fragment_instructions"
+        tools:layout="@layout/fragment_instructions" />
 </navigation>

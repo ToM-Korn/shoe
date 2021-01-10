@@ -8,6 +8,7 @@ import com.udacity.shoestore.data.LoginRepository
 import com.udacity.shoestore.data.Result
 
 import com.udacity.shoestore.R
+import com.udacity.shoestore.data.model.LOGGEDIN
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
@@ -22,6 +23,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
         val result = loginRepository.login(username, password)
 
         if (result is Result.Success) {
+            LOGGEDIN = true
             _loginResult.value =
                 LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
         } else {

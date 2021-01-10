@@ -1,64 +1,66 @@
 package com.udacity.shoestore
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
+import timber.log.Timber
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [WelcomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class WelcomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        Timber.i("Created Welcome Fragment")
+
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val binding : FragmentWelcomeBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_welcome, container, false)
+        Timber.i("Inflating Welcome Fragment")
+
+        // Inflate the layout for this fragment and create binding
+        val binding: FragmentWelcomeBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_welcome,
+            container,
+            false
+        )
+
+        // create listener for main button
+        binding.buttonShowMeShoes.setOnClickListener { v: View ->
+            Timber.i("pressed shoe me shoes button!")
+            v.findNavController().navigate(
+                WelcomeFragmentDirections.actionWelcomeFragmentToScrollingFragment()
+            )
+
+        }
+
+        //setHasOptionsMenu(true)
         return binding.root
-        //return inflater.inflate(R.layout.fragment_welcome, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WelcomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WelcomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onStart() {
+        super.onStart()
     }
+
+    /*
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu, menu)
+    }
+*/
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
+    }
+
 }

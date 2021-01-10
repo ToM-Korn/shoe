@@ -1,5 +1,6 @@
 package com.udacity.shoestore.data
 
+import com.udacity.shoestore.data.model.LOGGEDIN
 import com.udacity.shoestore.data.model.LoggedInUser
 
 /**
@@ -23,6 +24,7 @@ class LoginRepository(val dataSource: LoginDataSource) {
     }
 
     fun logout() {
+        LOGGEDIN = false
         user = null
         dataSource.logout()
     }
@@ -32,6 +34,7 @@ class LoginRepository(val dataSource: LoginDataSource) {
         val result = dataSource.login(username, password)
 
         if (result is Result.Success) {
+            LOGGEDIN = true
             setLoggedInUser(result.data)
         }
 

@@ -3,15 +3,18 @@
 
     <group >
         <item
-            android:id="@+id/InstrutionsFragment"
+            android:id="@+id/instructionsFragment"
+            android:icon="@drawable/ic_baseline_info_24"
             android:title="@string/InstructionsItem" />
         <item
-            android:id="@+id/ShoesFragment"
+            android:id="@+id/scrollingFragment"
+            android:icon="@drawable/ic_high_heels"
             android:title="@string/ShoesItem" />
     </group>
     <group >
         <item
-            android:id="@+id/LogoutFragment"
+            android:id="@+id/loginFragment"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
             android:title="@string/LogoutItem" />
     </group>
 </menu>
