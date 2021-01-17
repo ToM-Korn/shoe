@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionsBinding
+import timber.log.Timber
 
 class InstructionsFragment : Fragment() {
 
@@ -23,6 +25,15 @@ class InstructionsFragment : Fragment() {
             container,
             false
         )
+        // create listener for main button
+        binding.buttonInstructions.setOnClickListener { v: View ->
+            Timber.i("pressed shoe me shoes button!")
+            v.findNavController().navigate(
+                InstructionsFragmentDirections.actionInstructionsFragmentToScrollingFragment()
+            )
+
+        }
+
 
         return binding.root
     }

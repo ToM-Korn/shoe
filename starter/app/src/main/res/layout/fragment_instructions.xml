@@ -36,16 +36,25 @@
                 android:text="@string/instructions_title"
                 android:textSize="24sp" />
 
+
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
+                android:id="@+id/instructions_instructions_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:nestedScrollingEnabled="false"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:text="@string/large_text" />
+                android:text="@string/instruction_text" />
 
-
+            <Button
+                android:id="@+id/button_instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:text="@string/button_show_me_shoes"
+                android:textAlignment="center" />
 
         </LinearLayout>
     </ScrollView>

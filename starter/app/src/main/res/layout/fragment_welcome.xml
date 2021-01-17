@@ -12,7 +12,7 @@ adopt to every screen -->
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/welcome_title_image"
             android:layout_width="365dp"
             android:layout_height="259dp"
             android:layout_marginStart="24dp"
@@ -25,7 +25,7 @@ adopt to every screen -->
             app:srcCompat="@drawable/ic_high_heels" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/welcome_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -33,26 +33,26 @@ adopt to every screen -->
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/welcome_title_image" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/welcome_subtitle"
             android:layout_width="239dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/welcome_fragement_welcome_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/welcome_title" />
 
         <Button
-            android:id="@+id/button_show_me_shoes"
+            android:id="@+id/button_instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/button_show_me_shoes"
+            android:text="@string/welcome_button_instructions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/welcome_subtitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

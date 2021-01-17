@@ -21,11 +21,11 @@
         android:id="@+id/welcomeFragment"
         android:name="com.udacity.shoestore.WelcomeFragment">
         <action
-            android:id="@+id/action_welcomeFragment_to_scrollingFragment"
-            app:destination="@id/scrollingFragment" />
-        <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_instructionsFragment"
+            app:destination="@id/instructionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/scrollingFragment"
@@ -48,5 +48,9 @@
     <fragment
         android:id="@+id/instructionsFragment"
         android:name="com.udacity.shoestore.InstructionsFragment"
-        tools:layout="@layout/fragment_instructions" />
+        tools:layout="@layout/fragment_instructions" >
+        <action
+            android:id="@+id/action_instructionsFragment_to_scrollingFragment"
+            app:destination="@id/scrollingFragment" />
+    </fragment>
 </navigation>

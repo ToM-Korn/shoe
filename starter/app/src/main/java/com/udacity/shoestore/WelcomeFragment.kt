@@ -36,13 +36,14 @@ class WelcomeFragment : Fragment() {
         )
 
         // create listener for main button
-        binding.buttonShowMeShoes.setOnClickListener { v: View ->
+        binding.buttonInstructions.setOnClickListener { v: View ->
             Timber.i("pressed shoe me shoes button!")
             v.findNavController().navigate(
-                WelcomeFragmentDirections.actionWelcomeFragmentToScrollingFragment()
+                WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment()
             )
 
         }
+
         // as by requirements no logout on welcome page
         // setHasOptionsMenu(true)
         return binding.root

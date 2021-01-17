@@ -123,4 +123,14 @@
     <string name="shoe_size">0.0</string>
     <string name="shoe_detail_shoe_size_hint">Shoe Size</string>
     <string name="shoe_detail_button_cancle">Cancel</string>
+    <string name="instruction_text">
+"Shoe List\n\n"
+"In the next View you will find a list of Shoes. You can either click on one of the Shoes,"
+"to select it or you click on the + Button in the lower right to add a new one.\n\n"
+"Shoe Detail.\n\n"
+"In the Detail View of the Shoe you can click on the lower right to edit the shoe. \n\n"
+"Logout.\n\n"
+"You can click to the top right on the Icon to logout of your account. \n\n"
+</string>
+    <string name="welcome_button_instructions">Instructions</string>
 </resources>
