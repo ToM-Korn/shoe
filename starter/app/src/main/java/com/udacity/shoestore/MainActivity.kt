@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.data.model.LOGGEDIN
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     // create the bindnig object
     private lateinit var binding: ActivityMainBinding
-    private lateinit var shoeDrawerLayout: DrawerLayout
+    //private lateinit var shoeDrawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     // create the var for SharedShoeData
@@ -35,13 +36,16 @@ class MainActivity : AppCompatActivity() {
         // main activity binding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        // drawer binding
-        shoeDrawerLayout = binding.shoeDrawerLayout
+        // drawer binding disabled because of requirements
+        //shoeDrawerLayout = binding.shoeDrawerLayout
 
-        //viewModel = ViewModelProviders.of(activity!!).get(NoteViewModel::class.java)
+        // old implementation of nav controller with fragment as navHostFragment
+        //val navController = this.findNavController(R.id.shoeNavHostFragment)
 
         // NavController and ActionBar Setup
-        val navController = this.findNavController(R.id.shoeNavHostFragment)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.shoeNavHostFragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
 
         // get the toolbar from binding and set it as actionbar
         setSupportActionBar(binding.toolbar)
@@ -55,9 +59,8 @@ class MainActivity : AppCompatActivity() {
 
         shoeData = ViewModelProvider(this).get(SharedShoeData::class.java)
 
-        NavigationUI.setupActionBarWithNavController(this, navController, shoeDrawerLayout)
-        appBarConfiguration = AppBarConfiguration(navController.graph, shoeDrawerLayout)
-
+        NavigationUI.setupActionBarWithNavController(this, navController)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, bundle: Bundle? ->
             if (nd.id == R.id.loginFragment) {
                 Timber.i("navigating to LoginFragment nd.id = ${nd.id} to = ${R.id.loginFragment}")

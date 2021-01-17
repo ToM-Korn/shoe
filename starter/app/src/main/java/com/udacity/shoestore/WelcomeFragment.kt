@@ -43,8 +43,8 @@ class WelcomeFragment : Fragment() {
             )
 
         }
-
-        setHasOptionsMenu(true)
+        // as by requirements no logout on welcome page
+        // setHasOptionsMenu(true)
         return binding.root
     }
 

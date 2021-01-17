@@ -161,8 +161,8 @@ class ShoeDetailFragment : Fragment() {
             }
         })
 
-            
-        setHasOptionsMenu(true)
+        // as by requirements no logout on detail page
+        // setHasOptionsMenu(true)
         return binding.root
 
     }

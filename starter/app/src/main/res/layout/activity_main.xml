@@ -39,7 +39,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <fragment
+                // if i use the following as suggested:
+                // You can use FragmentContainerView because fragment is deprecated
+                // i get a compiler error:
+                //
+                <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/shoeNavHostFragment"
                     android:name="androidx.navigation.fragment.NavHostFragment"
                     android:layout_width="match_parent"
