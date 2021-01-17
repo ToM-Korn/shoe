@@ -37,6 +37,10 @@ android {
 dependencies {
 
     def nav_version = "2.2.2"
+    def fragment_version = "1.2.5"
+
+    // Kotlin
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

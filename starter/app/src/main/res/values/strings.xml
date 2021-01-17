@@ -3,7 +3,8 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_register">Register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome! "</string>
     <string name="invalid_username">Not a valid username</string>
@@ -119,4 +120,7 @@
     <string name="toolbar_subtitile">"... bring color to the pavement!"</string>
     <string name="instructions_title">Instructions</string>
     <string name="fab_add">Add</string>
+    <string name="shoe_size">0.0</string>
+    <string name="shoe_detail_shoe_size_hint">Shoe Size</string>
+    <string name="shoe_detail_button_cancle">Cancel</string>
 </resources>

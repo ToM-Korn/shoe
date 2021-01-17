@@ -1,107 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintBottom_toTopOf="@+id/shoeDrawerLayout"
-                app:title="@string/toolbar_title" />
-
-            <androidx.drawerlayout.widget.DrawerLayout
-                android:id="@+id/shoeDrawerLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <fragment
-                        android:id="@+id/shoeNavHostFragment"
-                        android:name="androidx.navigation.fragment.NavHostFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:defaultNavHost="true"
-                        app:navGraph="@navigation/navigation" />
-
-                </FrameLayout>
-
-                <com.google.android.material.navigation.NavigationView
-                    android:id="@+id/shoeNavView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start"
-                    app:headerLayout="@layout/nav_header"
-                    app:menu="@menu/navdrawer_menu" />
-
-            </androidx.drawerlayout.widget.DrawerLayout>
-        </LinearLayout>
-</layout>
-
-
-<!-- Trivia Layout
+<!-- layout tag for data binding -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<androidx.drawerlayout.widget.DrawerLayout
-    android:id="@+id/drawerLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    <!-- this is a more complex stack of different  layouts
+        1st we use a linear layout to fix the toolbar to the top and the rest of content underneath-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <fragment
-            android:id="@+id/myNavHostFragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toTopOf="@+id/shoeDrawerLayout"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
+            app:title="@string/toolbar_title" />
+
+        <!-- the drawer layoout will draw below the toolbar because of the linear layout -->
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/shoeDrawerLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/navigation" />
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/navdrawer_menu" />
-</androidx.drawerlayout.widget.DrawerLayout>
-</layout>
--->
-
-<!--
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/FragmentWelcome"
-                android:name="com.udacity.shoestore.WelcomeFragment"
+            <!-- next we set a frame layout to fill the lower space below the tool bar
+            -> then we can usee match_parent in the NavHostFragment to fill the screen -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout="@layout/fragment_welcome" />
-        </LinearLayout>
+                android:layout_height="match_parent">
 
--->
+                <fragment
+                    android:id="@+id/shoeNavHostFragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/navigation" />
+
+            </FrameLayout>
+
+            <!-- Navigation View provides the Burger Icon / NavigateUp Arrow -->
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/shoeNavView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                app:headerLayout="@layout/nav_header"
+                app:menu="@menu/navdrawer_menu" />
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+    </LinearLayout>
+</layout>

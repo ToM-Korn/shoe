@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<!-- layout for databindnig -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <!-- no need for data variables - elements are static text resources -->
+
+    <!-- using scrollview with Linear Layout to adoubt to long text in instructions
+     constroint layout would not scroll and would cut the text as far as i have tried it -->
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/instructions_app_title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:text="@string/toolbar_title"
-            android:textSize="36sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/instructions_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:text="@string/instructions_title"
-            android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="@string/large_text" />
+            <TextView
+                android:id="@+id/instructions_app_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/toolbar_title"
+                android:textSize="36sp" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/instructions_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/instructions_title"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/large_text" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- layout for data binding - in this case for beeing able to dynamically fill
+    the Linear Layout with Shoe Snippets -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- no data variable needed because items will be added to id: scroll_view_table with addView
+        in Srolling Fragment -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
