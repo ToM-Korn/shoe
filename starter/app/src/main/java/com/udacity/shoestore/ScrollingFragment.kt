@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.udacity.shoestore.data.model.LOGGEDIN
 import com.udacity.shoestore.databinding.FragmentScrollingBinding
 import com.udacity.shoestore.databinding.SnippetShoeBinding
 import com.udacity.shoestore.detail.ShoeDetailViewModel
@@ -152,7 +153,12 @@ class ScrollingFragment : Fragment() {
     }
 
     private fun logout(){
-        this.findNavController().navigate(R.id.loginFragment)
+        // i know this is not the correct way to logout a user ...
+        // but for navigation and layout purpose of this project  it should be sufficient for now
+        LOGGEDIN = false
+
+        // navigating to login screen - poping to nav_root was not set the correct way before
+        this.findNavController().navigate(ScrollingFragmentDirections.actionScrollingFragmentToLoginFragment())
     }
 }
 
